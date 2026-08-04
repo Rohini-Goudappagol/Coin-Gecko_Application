@@ -4,6 +4,7 @@ import { fetchCoinDetails } from "../services/fetchCoinDetails"
 import { useContext, useEffect } from "react"
 import parse from'html-react-parser'
 import { CurrencyContext } from "../context/CurrencyContext"
+import { PageLoader } from "../components/PageLoader/Pageloader"
 
 function CoinDetailsPage(){
     const {currency} = useContext(CurrencyContext);
@@ -19,7 +20,7 @@ function CoinDetailsPage(){
     },[coin])
 
     if(isLoading){
-        return <div>Loading......</div>
+        return <div><PageLoader/></div>
     }
     if (isError) {
     return <div>{error.message}</div>;

@@ -3,6 +3,7 @@ import { fetchCoinData } from "../../services/fetchCoinData";
 import { useQuery } from "@tanstack/react-query";
 import { CurrencyContext } from "../../context/CurrencyContext";
 import { useNavigate } from "react-router-dom";
+import { PageLoader } from "../PageLoader/Pageloader";
 
 function CoinTable() {
   const {currency} = useContext(CurrencyContext);
@@ -21,6 +22,9 @@ function CoinTable() {
   function handleRedirecting(id){
     navigate(`/details/${id}`);
     console.log('clicked ');
+  }
+  if(isLoading){
+    return <div><PageLoader/></div>
   }
   if (isError) {
     return <div>{error.message}</div>;
