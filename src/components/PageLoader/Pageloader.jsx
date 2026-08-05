@@ -4,7 +4,7 @@ export const PageLoader = () => (
   <ContentLoader
     height={140}
     speed={1}
-    backgroundColor={'#333'}
+    backgroundColor={ '#E5E5E5' } // Standard gray
     foregroundColor={'#999'}
     viewBox="0 0 380 70"
   >
